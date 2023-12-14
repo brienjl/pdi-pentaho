@@ -1111,7 +1111,7 @@
     </filters>
     <fields>
       <field>
-        <name>Customer_ID</name>
+        <name>﻿Customer_ID</name>
         <type>String</type>
         <format/>
         <currency>$</currency>
