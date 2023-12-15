@@ -14,6 +14,7 @@ Profit numeric
 
 /*Place the csv in the container then run*/
 COPY tbl_sales from '/var/lib/postgresql/data/SalesforSQL.csv' delimiter ',' csv header;
+COPY tbl_sales from '/var/lib/postgresql/data/SalesforAWSandHadoop.csv' delimiter ',' csv header;
 
 /*Check that data is copied over*/
 SELECT * 
