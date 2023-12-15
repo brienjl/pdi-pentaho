@@ -4,16 +4,20 @@ services:
   db:
     image: postgres
     environment:
+      memory: 2g
+      memory-swap: 3g
       POSTGRES_PASSWORD: password 
       volumes:
         -C:/workspace/postgres-data:/var/lib/postgresql/data
-      ports:
-        -"db:5432"
+    ports: 
+      - "5432:5432"
 
   pgadmin:
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: email
+      memory: 2g
+      memory-swap: 3g
+      PGADMIN_DEFAULT_EMAIL: email@email.com
       PGADMIN_DEFAULT_PASSWORD: password
     ports:
       - "8080:80"
