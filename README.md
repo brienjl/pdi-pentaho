@@ -48,7 +48,7 @@ Next, you'll merge the data streams into single "Customers" stream.
 Finally, remove duplicate data.
 * [Unique Rows](https://help.hitachivantara.com/Documentation/Pentaho/Data_Integration_and_Analytics/9.4/Products/Unique_Rows) to remove duplicate rows from the merged data stream.
 
-![Tabular Data Extraction Simplified](ref-images\tabular-extractions-simple.JPG "Tabular Data Extraction Simplified.")
+![Tabular Data Extraction Simplified](ref-images/tabular-extractions-simple.JPG "Tabular Data Extraction Simplified.")
 
 ---
 
