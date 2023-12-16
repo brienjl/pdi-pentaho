@@ -14,7 +14,12 @@ Here's a full guide on [installing Pentaho](https://www.hitachivantara.com/en-us
 
 ---
 
-### Extracting Tabular Data - Customer Data
+## Table of Contents
+* [Extracting Tabular Data](#extracting-tabular-data)
+  * [Basic Tabular Data Workflow](#tabular-data-workflow)
+
+### Extracting Tabular Data - Customer Data <a name="extracting-tabular-data"></a>
+
 *Tabular data* in this context refers to data in *text/tab, csv, excel* files. 
 
 For example tabular data extractions, we'll first look at the example **Customer Data** I've uploaded to this repo and the types of use cases we would use Pentaho for.
@@ -31,7 +36,7 @@ The following use cases are:
 
 All of the sample data can be found in the **customers** folder under [sample data](sample-data) folder. 
 
-#### Basic Tabular Data Workflow
+#### Basic Tabular Data Workflow <a name="tabular-data-workflow"></a>
 Select the Input Transformation
 * [Data grid](https://pentaho-public.atlassian.net/wiki/spaces/EAI/pages/386800034/Data+Grid) for small sample data and testing
 * [Text file input](https://help.hitachivantara.com/Documentation/Pentaho/Data_Integration_and_Analytics/9.4/Products/Text_File_Input) for single and multi-file inputs where you can use Regex on the file string to select multiple files. Can also be used for multiple files compressed in ZIP folder.
