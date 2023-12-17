@@ -17,14 +17,16 @@ Here's a full guide on [installing Pentaho](https://www.hitachivantara.com/en-us
 ## Table of Contents
 * [Extracting Tabular Data](#extracting-tabular-data)
   * [Basic Tabular Data Workflow](#tabular-data-workflow)
+* [Extracting Object Data](#extracting-object-data)
+  * [Basic Object Data Workflow](#basic-object-data-workflow)
 
 ### Extracting Tabular Data - Customer Data <a name="extracting-tabular-data"></a>
 
 *Tabular data* in this context refers to data in *text/tab, csv, excel* files. 
 
-For example tabular data extractions, we'll first look at the example **Customer Data** I've uploaded to this repo and the types of use cases we would use Pentaho for.
+Example tabular data extractions, use the example **Customer Data** uploaded to this repo.
 
-**Examples:** can be found in the **tabular-extractions.ktr** file in the [extractions](extractions/tabular-extractions.ktr) folder. 
+**Pentaho Examples:** can be found in the **tabular-extractions.ktr** file in the [extractions](extractions/tabular-extractions.ktr) folder. 
 
 The following use cases are:
 * manually generated data grids within pentaho
@@ -36,7 +38,9 @@ The following use cases are:
 
 All of the sample data can be found in the **customers** folder under [sample data](sample-data) folder. 
 
-#### Basic Tabular Data Workflow <a name="tabular-data-workflow"></a>
+#### Basic Tabular Data Workflow 
+<a name="tabular-data-workflow"></a>
+
 Select the Input Transformation
 * [Data grid](https://pentaho-public.atlassian.net/wiki/spaces/EAI/pages/386800034/Data+Grid) for small sample data and testing
 * [Text file input](https://help.hitachivantara.com/Documentation/Pentaho/Data_Integration_and_Analytics/9.4/Products/Text_File_Input) for single and multi-file inputs where you can use Regex on the file string to select multiple files. Can also be used for multiple files compressed in ZIP folder.
@@ -56,4 +60,38 @@ Finally, remove duplicate data.
 ![Tabular Data Extraction Simplified](ref-images/tabular-extractions-simple.JPG "Tabular Data Extraction Simplified.")
 
 ---
+
+### Extracting Object/Schema Data - Customer Data <a name="extracting-object-data"></a>
+
+*Object/Schema data* in this context refers to data in xml or json schemas
+
+Example data extractions, use the example **products** data that's uploaded to this repo.
+
+**Pentaho Examples:** can be found in the **object-extractions.ktr** file in the [extractions](extractions/object-extractions.ktr) folder.   
+
+The following use cases are:
+* xml schema
+* json schema
+
+All of the sample data can be found in the **products** folder under the [sample data](sample-data) folder. 
+
+#### Basic Object Data Workflow 
+<a name="object-data-workflow"></a>
+
+Select the Input Transformation
+
+* [xml](https://pentaho-public.atlassian.net/wiki/spaces/EAI/pages/372081230/Get+Data+From+XML) - Read in XML data using xPath node parsing
+
+* [json](https://help.hitachivantara.com/Documentation/Pentaho/Data_Integration_and_Analytics/9.4/Products/JSON_Input) - Read in json data using JSONPath node parsing
+
+Set the meta data (fields) for the inputs, ensuring fields are named exactly the same
+
+If fields are not formatted the same, or require re-mapping, then use
+* [select values](https://help.hitachivantara.com/Documentation/Pentaho/Data_Integration_and_Analytics/9.4/Products/Select_Values) - to format the fields so they match across pre-merged data streams
+
+Finally, you'll sort streams, merge streams, and then select unique rows (just as you would with tabular data inputs)
+
+![Object/Schema Data Extraction Simplified](ref-images/object-extraction-simple.JPG "Object/Schema Data Extraction Simplified.")
+
+----
 
