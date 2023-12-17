@@ -1,26 +1,68 @@
 # Introduction
 This repository contains example data and common activities used for ETL and Data Engineering using Pentaho Data Integration (PDI) Community Edition.
 
+The examples and sample data are relatively simple but are normalized with relationships between customer, sales, and product data.
+
+This project is simple;  however, can be applied to more complex contexts and used as a reference when extracting schemas, database, or flat file data types. 
+
 More on Pentaho and it's use cases and features can be found [here](https://help.hitachivantara.com/Documentation/Pentaho/Data_Integration_and_Analytics/9.1/Products/Pentaho_Data_Integration).
 
+## Table of Contents
+* [Required Software](#required-software)
+  * [Installing Java & Pentaho](#install-java-pentaho)
+  * [Install Docker, PostgreSQL, PgAdmin](#install-docker)
+  * [Seed Databse - Sales Data](#seed-database)
+* [Extracting Tabular Data](#extracting-tabular-data)
+  * [Basic Tabular Data Workflow - Customer Data](#tabular-data-workflow)
+* [Extracting Object Data](#extracting-object-data)
+  * [Basic Object Data Workflow - Product Data](#basic-object-data-workflow)
+
 ## Required Software
+<a name="required-software"></a>
+
+1. Pentaho Data Integration (PDI)
+2. Docker (optional for setting up local postgreSQL database and extracting sample data)
+
+### Installing Java & Pentaho
+<a name="install-java-pentaho"></a>
+
 Here's a full guide on [installing Pentaho](https://www.hitachivantara.com/en-us/pdf/implementation-guide/three-steps-to-install-pentaho-data-integration-ce.pdf).
 
-### TL;DR
+#### TL;DR
 1. Download and install the latest Java JDK at [Java Downloads | Oracle](https://www.oracle.com/java/technologies/downloads/#jdk21-windows). 
 2. Use the 'Base Install' of [Pentaho Community Edition | Hitachi Vantara](https://www.hitachivantara.com/en-us/products/pentaho-plus-platform/data-integration-analytics/pentaho-community-edition.html).
 3. Extract the files into a new folder in your machine's Program Files (pc) or Applicaitons Folder (mac).
 4. Run the *spoon.bat* file and Pentaho should fire up.
 
+### Installing Docker, Setting up a PostgreSQL Database, PgAdmin
+<a name="install-docker"></a>
+
+Here's the official documentation for [installing Docker](https://docs.docker.com/engine/install/)
+
+#### TL;DR - get a local DB up and running with Docker
+1. Download and install Docker and ensure sure it's running on your local machine
+2. Clone this repo 
+3. From the `/postgress-docker`folder run the following command `docker-compose up` 
+4. This will spin up both a postgreSQL Database and a database admin server call PgAdmin (each will require 2g of memory on your machine. 4g total memory will be used).
+5. Open your browser and Navigate to [https://localhost/8080](https://localhost/8080) to open PgAdmin.
+6. Login with the credentials that are set from the [docker-compose.yml](postgress-docker\docker-compose.yml)
+7. Setup up a new connection with the postgresDB called `db`
+
+#### Seed Database
+<a name="seed-database"></a>
+
+1. From the `db` container, navigate to the database location: `"/var/lib/postgresql/data/`
+2. Copy the two .csv files in the [sample-data/sales](sample-data\sales) folder into the database's `/data` folder
+3. Create a new `Query`
+4. `CREATE TABLE` `tbl_sales` by running the first script in the [postgress-docker/create-sales-script.sql](postgress-docker\create-sales-script.sql)
+5. Seed `tbl_sales` using the `COPY` scripts provided
+
+Your database should not be seeded with sales data in the table called `tbl_sales`
+
 ---
 
-## Table of Contents
-* [Extracting Tabular Data](#extracting-tabular-data)
-  * [Basic Tabular Data Workflow](#tabular-data-workflow)
-* [Extracting Object Data](#extracting-object-data)
-  * [Basic Object Data Workflow](#basic-object-data-workflow)
-
-### Extracting Tabular Data - Customer Data <a name="extracting-tabular-data"></a>
+### Extracting Tabular Data - Customer Data 
+<a name="extracting-tabular-data"></a>
 
 *Tabular data* in this context refers to data in *text/tab, csv, excel* files. 
 
