@@ -16,6 +16,8 @@ More on Pentaho and it's use cases and features can be found [here](https://help
   * [Basic Tabular Data Workflow - Customer Data](#tabular-data-workflow)
 * [Extracting Object Data](#extracting-object-data)
   * [Basic Object Data Workflow - Product Data](#basic-object-data-workflow)
+* [Extracting Database Data](#extracting-db-data)
+  * [Basic Database Workflow - Sales Data](#db-data-workflow)
 
 ## Required Software
 <a name="required-software"></a>
@@ -136,4 +138,36 @@ Finally, you'll sort streams, merge streams, and then select unique rows (just a
 ![Object/Schema Data Extraction Simplified](ref-images/object-extraction-simple.JPG "Object/Schema Data Extraction Simplified.")
 
 ----
+
+### Extracting Database Data - Sales Data
+<a name="extracting-db-data"></a>
+
+Example database extractions, use the example sales Data uploaded to this repo.
+
+Pentaho Examples: can be found in the **db-extractions.ktr** file in the [extractions folder](extractions).
+
+The following use cases are:
+
+* PostgreSQL database
+
+All of the sample data can be found in the **sales** folder under the [sample data](sample-data) folder. 
+
+#### Basic Object Data Workflow 
+<a name="db-data-workflow"></a>
+
+Select the Input Transformation
+
+* [Table Input](https://help.hitachivantara.com/Documentation/Pentaho/Data_Integration_and_Analytics/9.4/Products/Table_Input)
+
+Create a new connection to the Database using credentials and port number
+
+Select the SQL Query to be used. This extraction is very simple and selects all data in the table tbl_sales
+
+`SELECT * FROM tbl_sales`
+
+Next, you'll sort the rows and then select unique IDs has done in previous steps. 
+
+![DB Data Extraction Simplified](ref-images/db-extraction-simple.JPG "DB Data Extraction Simplified.")
+
+---
 
