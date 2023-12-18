@@ -168,6 +168,7 @@ Select the SQL Query to be used. This extraction is very simple and selects all 
 Next, you'll sort the rows and then select unique IDs has done in previous steps. 
 
 ![DB Data Extraction Simplified](ref-images/db-extraction-simple.JPG "DB Data Extraction Simplified.")
+___ 
 
----
+## Data Cleaning
 
